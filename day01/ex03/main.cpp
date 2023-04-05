@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elias <elias@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 01:45:57 by elias             #+#    #+#             */
-/*   Updated: 2023/03/31 02:37:47 by elias            ###   ########.fr       */
+/*   Updated: 2023/04/05 00:28:25 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,6 @@ int main()
         club.setType("some other type of club");
         jim.attack();
     }
+    while (1);
     return 0;
 }

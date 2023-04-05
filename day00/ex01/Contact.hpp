@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/30 22:35:29 by elias             #+#    #+#             */
-/*   Updated: 2023/04/05 00:20:43 by ebelkhei         ###   ########.fr       */
+/*   Created: 2023/03/28 02:12:49 by elias             #+#    #+#             */
+/*   Updated: 2023/04/04 20:03:42 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef CONTACT_HPP
+#define CONTACT_HPP
 
-int main()
+#include <string>
+#include <cstdlib>
+#include <iostream>
+
+class	Contact
 {
-    Zombie *horde = zombieHorde(4, "Hmeda");
-    if (!horde)
-        return 1;
-    for (size_t i = 0; i < 4; i++)
-        horde[i].announce();
-    delete [] horde;
-}
+public:
+    std::string firstName;
+    std::string lastName;
+    std::string nickName;
+    std::string darkestSecret;
+    std::string phoneNumber;
+};
+
+
+#endif

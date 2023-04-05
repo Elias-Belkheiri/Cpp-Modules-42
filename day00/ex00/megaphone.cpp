@@ -1,23 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   megaphone.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/30 22:35:29 by elias             #+#    #+#             */
-/*   Updated: 2023/04/05 00:20:43 by ebelkhei         ###   ########.fr       */
+/*   Created: 2023/03/12 22:31:28 by ebelkhei          #+#    #+#             */
+/*   Updated: 2023/04/04 23:03:38 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include <iostream>
+#include <cctype>
 
-int main()
+int main(int argc, char *argv[])
 {
-    Zombie *horde = zombieHorde(4, "Hmeda");
-    if (!horde)
-        return 1;
-    for (size_t i = 0; i < 4; i++)
-        horde[i].announce();
-    delete [] horde;
+	char c;
+
+	if (argc == 1)
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
+	else
+	{
+		for (size_t i = 1; argv[i]; i++)
+		{
+			for (size_t j = 0; argv[i][j]; j++)
+				std::cout << (c = toupper(argv[i][j]));
+		}
+		
+	}
+	std::cout << std::endl;
 }

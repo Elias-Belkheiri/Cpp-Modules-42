@@ -1,23 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/30 22:35:29 by elias             #+#    #+#             */
-/*   Updated: 2023/04/05 00:20:43 by ebelkhei         ###   ########.fr       */
+/*   Created: 2023/04/04 19:55:41 by ebelkhei          #+#    #+#             */
+/*   Updated: 2023/04/04 23:13:17 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef PHONEBOOK_HPP
+#define PHONEBOOK_HPP
+#include "Contact.hpp"
 
-int main()
+class	PhoneBook
 {
-    Zombie *horde = zombieHorde(4, "Hmeda");
-    if (!horde)
-        return 1;
-    for (size_t i = 0; i < 4; i++)
-        horde[i].announce();
-    delete [] horde;
-}
+	Contact	contacts[8];
+	int     size;
+	int		idx;
+	public:
+	    		PhoneBook();
+	    void	addContact();
+		void    print();
+		void	search();
+};
+
+void	print_ten_wide(std::string str);
+void	printContact(Contact contact, int i);
+bool	checkNumber(std::string number);
+
+#endif

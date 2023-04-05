@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elias <elias@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 18:14:58 by elias             #+#    #+#             */
-/*   Updated: 2023/03/30 22:50:36 by elias            ###   ########.fr       */
+/*   Updated: 2023/04/05 00:16:50 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,18 @@ Zombie::~Zombie()
 Zombie::Zombie()
 {
     std::cout << "The default Constructor has been called" << std::endl;
-    this->name = name;
 }
 
 
-Zombie::Zombie(std::string name)
+Zombie::Zombie(std::string _name)
 {
     std::cout << "Constructor has been called" << std::endl;
-    this->name = name;
+    this->name = _name;
 }
 
-void Zombie::setName(std::string name)
+void Zombie::setName(std::string _name)
 {
-    this->name = name;
+    this->name = _name;
 }
 
 void	Zombie::announce(void)

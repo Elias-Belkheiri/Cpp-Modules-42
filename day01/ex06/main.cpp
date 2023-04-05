@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elias <elias@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 22:52:12 by elias             #+#    #+#             */
-/*   Updated: 2023/04/02 01:58:33 by elias            ###   ########.fr       */
+/*   Updated: 2023/04/05 00:39:44 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@ int main(int argc, char **argv)
     Harl h;
 
     h.complain(argv[1]);
-    // h.complain("warning");
-    // h.complain("lol");
 
     return 0;
 }

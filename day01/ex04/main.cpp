@@ -3,26 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elias <elias@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 23:23:28 by elias             #+#    #+#             */
-/*   Updated: 2023/04/01 01:42:31 by elias            ###   ########.fr       */
+/*   Updated: 2023/04/05 00:32:44 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "main.hpp"
 
-std::string replace(std::string line, char *s1, char *s2)
+void replace(std::string &line, char *s1, char *s2)
 {
-    // std::string result;
-    // while (strstr(line.c_str(), s1))
-    // {
-    //     result += line.substr(0, line.length() - strlen(s1));
-    //     result += s2;
-    //     line = line.substr(strlen(s1), line.length());
-    //     line = result + line;
-    // }
-    // return (line);
+    size_t pos = line.find(s1);
+    while (strlen(s1) && pos != std::string::npos)
+    {
+        line.erase(pos, strlen(s1));
+        line.insert(pos, s2);
+        pos = line.find(s1);
+    }
 }
 
 int main(int argc, char **argv)
@@ -41,15 +39,13 @@ int main(int argc, char **argv)
     infile.open(argv[1]);
     a1 = argv[1];
     a2 = ".replace";
-    outfile.open((a1 + a2).c_str()); // check leaks
+    outfile.open((a1 + a2).c_str());
     if (!infile.is_open())
     {
         std::cerr << "Invalid filename" << std::endl;
         return (1);
     }
-    while (!infile.eof())
-    {
-        getline(infile, store);
-        std::cout << replace(store, argv[2], argv[3]) << std::endl;
-    }
+    getline(infile, store, '\0');
+    replace(store, argv[2], argv[3]);
+    outfile << store;
 }

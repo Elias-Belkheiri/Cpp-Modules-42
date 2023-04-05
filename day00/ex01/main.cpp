@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ex01.cpp                                           :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elias <elias@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 02:27:25 by elias             #+#    #+#             */
-/*   Updated: 2023/03/29 02:57:20 by elias            ###   ########.fr       */
+/*   Updated: 2023/04/04 22:53:53 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ex01.hpp"
+#include "PhoneBook.hpp"
 
 int main()
 {
@@ -19,6 +19,8 @@ int main()
 	while (1)
 	{
 		getline(std::cin, in);
+		if (in.empty())
+			exit (0);
 		if (in == "ADD")
 			x.addContact();
 		else if (in == "SEARCH")

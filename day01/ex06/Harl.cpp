@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Harl.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elias <elias@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 22:29:43 by elias             #+#    #+#             */
-/*   Updated: 2023/04/02 02:01:32 by elias            ###   ########.fr       */
+/*   Updated: 2023/04/05 00:40:50 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void Harl::error(void)
 void Harl::complain( std::string level )
 {
     pt_func func[] = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
-    std::string levels[] = {"debug", "info", "warning", "error"};
+    std::string levels[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
     int i = 0;
     
     while (i < 4 && levels[i].compare(level))
@@ -51,7 +51,7 @@ void Harl::complain( std::string level )
             (this->*func[i++]) ();
         break;
     default:
-        std::cout << "Invalid level" << std::endl;
+        std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
         break;
     }
 }

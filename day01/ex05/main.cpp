@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elias <elias@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 22:52:12 by elias             #+#    #+#             */
-/*   Updated: 2023/04/02 01:26:52 by elias            ###   ########.fr       */
+/*   Updated: 2023/04/05 00:36:16 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@ int main(void)
     Harl h;
 
     h.complain("error");
-    h.complain("warning");
-    h.complain("lol");
+    h.complain("");
 
     return 0;
 }
