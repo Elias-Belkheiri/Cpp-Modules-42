@@ -6,7 +6,7 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 19:55:41 by ebelkhei          #+#    #+#             */
-/*   Updated: 2023/04/04 23:13:17 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2023/04/05 18:00:49 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ class	PhoneBook
 };
 
 void	print_ten_wide(std::string str);
+void	printInfo(Contact contact);
 void	printContact(Contact contact, int i);
 bool	checkNumber(std::string number);
 

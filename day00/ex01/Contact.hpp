@@ -6,7 +6,7 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 02:12:49 by elias             #+#    #+#             */
-/*   Updated: 2023/04/04 20:03:42 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2023/04/05 17:33:03 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,19 @@
 
 class	Contact
 {
-public:
-    std::string firstName;
-    std::string lastName;
-    std::string nickName;
-    std::string darkestSecret;
-    std::string phoneNumber;
+    private:
+        std::string firstName;
+        std::string lastName;
+        std::string nickName;
+        std::string darkestSecret;
+        std::string phoneNumber;
+    public:
+        void        setInfo(std::string attr, std::string type);
+        std::string getFirstName();
+        std::string getLastName();
+        std::string getNickName();
+        std::string getDarkestSecret();
+        std::string getPhoneNumber();
 };
 
 

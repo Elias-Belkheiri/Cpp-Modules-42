@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elias <elias@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 18:14:58 by elias             #+#    #+#             */
-/*   Updated: 2023/03/30 22:50:55 by elias            ###   ########.fr       */
+/*   Updated: 2023/04/07 17:01:47 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,11 @@
 
 Zombie::~Zombie()
 {
-    std::cout << "Tha Destructor has been called for " << name << std::endl;
+    
 }
 
 Zombie::Zombie(std::string name)
 {
-    std::cout << "Constructor has been called" << std::endl;
     this->name = name;
 }
 

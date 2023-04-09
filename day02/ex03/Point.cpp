@@ -1,31 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.cpp                                         :+:      :+:    :+:   */
+/*   Point.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/31 01:08:18 by elias             #+#    #+#             */
-/*   Updated: 2023/04/07 17:16:30 by ebelkhei         ###   ########.fr       */
+/*   Created: 2023/04/08 18:08:51 by ebelkhei          #+#    #+#             */
+/*   Updated: 2023/04/08 22:27:08 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
+#include "Point.hpp"
 
-Weapon::Weapon() {};
+Point::Point(void) : _x(Fixed (0)), _y(Fixed (0)) {};
 
-const std::string& Weapon::getType()
+Point::~Point(void)
 {
-    const std::string& str = type;
-    return (str);
+    
 }
 
-void    Weapon::setType(std::string newType)
+Point::Point(const float x, const float y) : _x(Fixed (x)), _y(Fixed (y)) {};
+
+Point::Point(const Point &p) : _x(p._x), _y(p._y) {};
+
+Point& Point::operator=(const Point _point)
 {
-    type = newType;
+    (void)_point;
+    return (*this);
 }
 
-Weapon::Weapon(std::string type)
+float Point::getX()
 {
-    this->type = type;
+    return _x.toFloat();
+}
+
+float Point::getY()
+{
+    return _y.toFloat();
 }

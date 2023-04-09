@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tools.hpp                                          :+:      :+:    :+:   */
+/*   tools.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 20:03:34 by ebelkhei          #+#    #+#             */
-/*   Updated: 2023/04/04 20:04:08 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2023/04/05 18:00:35 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,19 @@ void	print_ten_wide(std::string str)
 void	printContact(Contact contact, int i)
 {
 		std::cout << "         " << i << "|";
-		print_ten_wide(contact.firstName);
-        print_ten_wide(contact.lastName);
-        print_ten_wide(contact.nickName);
+		print_ten_wide(contact.getFirstName());
+        print_ten_wide(contact.getLastName());
+        print_ten_wide(contact.getNickName());
 		std::cout << std::endl;
+}
+
+void	printInfo(Contact contact)
+{
+	std::cout << "FirstName: " << contact.getFirstName() << std::endl;
+	std::cout << "LastName: " << contact.getLastName() << std::endl;
+	std::cout << "NickName: " << contact.getNickName() << std::endl;
+	std::cout << "DarkestSecret: " << contact.getDarkestSecret() << std::endl;
+	std::cout << "PhoneNumber: " << contact.getPhoneNumber() << std::endl;
 }
 
 bool	checkNumber(std::string number)

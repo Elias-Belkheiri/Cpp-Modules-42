@@ -1,29 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.hpp                                         :+:      :+:    :+:   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/31 01:04:24 by elias             #+#    #+#             */
-/*   Updated: 2023/04/07 17:16:42 by ebelkhei         ###   ########.fr       */
+/*   Created: 2023/04/05 02:00:07 by ebelkhei          #+#    #+#             */
+/*   Updated: 2023/04/05 16:46:40 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WEAPON_HPP
-# define WEAPON_HPP
+#ifndef CLAPTRAP_HPP
+#define CLAPTRAP_HPP
 
-#include <string>
 #include <iostream>
+#include <string>
 
-class Weapon
+class	ClapTrap
 {
-    std::string type;
-    public:
-    Weapon ();
-    Weapon(std::string type);
-    const std::string &getType();
-    void              setType(std::string newType);
-};
+	private:
+	    std::string	name;
+		int			hitPoints;
+		int			energyPoints;
+		int			attackDamage;
+	public:
+	    ClapTrap();
+	    ClapTrap(std::string _name);
+	    ClapTrap(ClapTrap& other);
+		~ClapTrap();
+		void attack(const std::string& target);
+		void takeDamage(unsigned int amount);
+		void beRepaired(unsigned int amount);
+
+}
 
 #endif

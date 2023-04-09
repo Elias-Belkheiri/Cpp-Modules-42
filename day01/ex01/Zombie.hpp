@@ -6,13 +6,15 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 17:54:11 by elias             #+#    #+#             */
-/*   Updated: 2023/04/05 00:16:57 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2023/04/07 04:32:33 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string>
 #include <iostream>
 
+#ifndef ZOMBIE_HPP
+#define ZOMBIE_HPP
 class	Zombie
 {
 	private:
@@ -26,3 +28,5 @@ class	Zombie
 };
 
 Zombie* zombieHorde( int N, std::string name );
+
+#endif

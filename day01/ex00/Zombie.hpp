@@ -3,15 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elias <elias@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 17:54:11 by elias             #+#    #+#             */
-/*   Updated: 2023/03/30 18:27:11 by elias            ###   ########.fr       */
+/*   Updated: 2023/04/07 17:01:54 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string>
 #include <iostream>
+
+#ifndef ZOMBIE_HPP
+#define ZOMBIE_HPP
 
 class	Zombie
 {
@@ -25,3 +28,5 @@ class	Zombie
 
 Zombie* newZombie( std::string name );
 void randomChump( std::string name );
+
+#endif

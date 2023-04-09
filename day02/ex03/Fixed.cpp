@@ -6,11 +6,9 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 17:41:18 by ebelkhei          #+#    #+#             */
-/*   Updated: 2023/04/08 23:20:01 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2023/04/08 23:22:55 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "Fixed.hpp"
 
 const int Fixed::fractional_bits = 8;
 
@@ -148,6 +146,7 @@ Fixed operator/(const Fixed &fixed_1, const Fixed &fixed_2)
     a.setRawBits(fixed_1.getRawBits() / fixed_2.getRawBits() << 8);
     return a;
 }
+
 // Increment and decrement operators
 Fixed operator++(Fixed &fixed_1)
 {
