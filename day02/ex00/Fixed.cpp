@@ -6,7 +6,7 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 17:41:18 by ebelkhei          #+#    #+#             */
-/*   Updated: 2023/04/06 21:50:11 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2023/04/09 19:41:49 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ Fixed::~Fixed()
 
 int Fixed::getRawBits( void ) const
 {
+    std::cout << "getRawBits member function called" << std::endl;
     return this->fixed;
 }
 

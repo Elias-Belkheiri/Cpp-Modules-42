@@ -6,7 +6,7 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 18:26:29 by ebelkhei          #+#    #+#             */
-/*   Updated: 2023/04/07 20:05:28 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2023/04/09 19:47:12 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ int main( void )
     std::cout << "b is " << b.toInt() << " as integer" << std::endl;
     std::cout << "c is " << c.toInt() << " as integer" << std::endl;
     std::cout << "d is " << d.toInt() << " as integer" << std::endl;
+    std::cout << "c is " << c.toFloat() << " as float" << std::endl;
     return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 02:04:03 by ebelkhei          #+#    #+#             */
-/*   Updated: 2023/04/05 16:46:36 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2023/04/09 05:34:10 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,16 @@ ClapTrap::ClapTrap(std::string _name)
 	attackDamage = 0;
 }
 
+ClapTrap& ClapTrap::operator=(ClapTrap& other)
+{
+	std::cout << "ClapTrap overloading assignment operator called" << std::endl;
+    name = other.name;
+    hitPoints = other.hitPoints;
+    energyPoints = other.energyPoints;
+    attackDamage = other.attackDamage;
+    return (*this);
+}
+
 ClapTrap::ClapTrap(ClapTrap& other)
 {
 	std::cout << "ClapTrap copy constructor called" << std::endl;
@@ -45,30 +55,37 @@ ClapTrap::~ClapTrap(void)
 
 void	ClapTrap::attack(const std::string& target)
 {
-	if (hitPoints > 0)
+	if (energyPoints && attackDamage)
 	{
-		std::cout << name << " attacked" << target << std::endl;
-		energyPoints--;
-	}
+		std::cout << "ClapTrap" << name << " attacks " << target << " causing " << attackDamage << " points of damage" << std::endl;
+        energyPoints--;
+    }
+	else if (!energyPoints)
+		std::cout << name << "no energy points to attack" << target << std::endl;
 	else
-        std::cout << name << " has no hit points" << std::endl;
+		std::cout << name << " has no attack damage points to attack " << target << std::endl;
+	
 }
 
 void	ClapTrap::beRepaired(unsigned int amount)
 {
-	if (hitPoints > 0)
+	if (energyPoints)
 	{
-		std::cout << name << ": repaired itself with " << amount << "point" << std::endl;
+		std::cout << name << " repaired " << amount << " energy points" << std::endl;
+        energyPoints--;
 		hitPoints += amount;
-		energyPoints--;
-	}
+    }
 	else
-        std::cout << name << " has no hit points" << std::endl;
+		std::cout << name << "no energy points to repair" << std::endl;
 }
 
 void	ClapTrap::takeDamage(unsigned int amount)
 {
-	std::cout << name << "took damage"< std::endl;
-	attackDamage -= amount;
+	std::cout << name << " lost " << amount << " damage points" << std::endl;
+	hitPoints -= amount;
+}
 
+int ClapTrap::getAttackDamage()
+{
+	return attackDamage;
 }

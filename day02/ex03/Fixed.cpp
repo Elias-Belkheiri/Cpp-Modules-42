@@ -6,9 +6,11 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 17:41:18 by ebelkhei          #+#    #+#             */
-/*   Updated: 2023/04/08 23:22:55 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2023/04/09 20:05:24 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "Fixed.hpp"
 
 const int Fixed::fractional_bits = 8;
 
