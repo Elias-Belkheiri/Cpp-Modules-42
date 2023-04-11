@@ -5,20 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/09 05:46:05 by ebelkhei          #+#    #+#             */
-/*   Updated: 2023/04/11 00:29:02 by ebelkhei         ###   ########.fr       */
+/*   Created: 2023/04/10 23:30:46 by ebelkhei          #+#    #+#             */
+/*   Updated: 2023/04/11 00:32:39 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int main()
 {
-    FragTrap x("hmeda");
-    FragTrap y("3azouz");
+    DiamondTrap monster("Hmeda");
     
-    x.attack("3azouz");
-    y.takeDamage(x.getAttackDamage());
-    y.beRepaired(2);
-    x.highFivesGuys();
+    monster.guardGate();
+    monster.highFivesGuys();
+    monster.attack("shawshe3");
+    monster.whoAmI();
 }

@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/09 05:46:05 by ebelkhei          #+#    #+#             */
-/*   Updated: 2023/04/11 00:29:02 by ebelkhei         ###   ########.fr       */
+/*   Created: 2023/04/09 02:51:26 by ebelkhei          #+#    #+#             */
+/*   Updated: 2023/04/10 20:06:17 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FragTrap.hpp"
+#ifndef FRAGTRAP_HPP
+#define FRAGTRAP_HPP
 
-int main()
+#include "ClapTrap.hpp"
+
+class  FragTrap : virtual public ClapTrap
 {
-    FragTrap x("hmeda");
-    FragTrap y("3azouz");
-    
-    x.attack("3azouz");
-    y.takeDamage(x.getAttackDamage());
-    y.beRepaired(2);
-    x.highFivesGuys();
-}
+	public:
+	    FragTrap(void);
+	    FragTrap(std::string name);
+	    ~FragTrap(void);
+
+		void attack(const std::string& target);
+		void highFivesGuys(void);
+};
+
+#endif

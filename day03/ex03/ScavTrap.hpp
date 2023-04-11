@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/09 05:46:05 by ebelkhei          #+#    #+#             */
-/*   Updated: 2023/04/11 00:29:02 by ebelkhei         ###   ########.fr       */
+/*   Created: 2023/04/09 02:51:26 by ebelkhei          #+#    #+#             */
+/*   Updated: 2023/04/10 20:06:22 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FragTrap.hpp"
+#ifndef SCAVTRAP_HPP
+#define SCAVTRAP_HPP
 
-int main()
+#include "ClapTrap.hpp"
+
+class  ScavTrap : virtual public ClapTrap
 {
-    FragTrap x("hmeda");
-    FragTrap y("3azouz");
-    
-    x.attack("3azouz");
-    y.takeDamage(x.getAttackDamage());
-    y.beRepaired(2);
-    x.highFivesGuys();
-}
+	public:
+	    ScavTrap(void);
+	    ScavTrap(std::string name);
+	    ~ScavTrap(void);
+
+		void attack(const std::string& target);
+		void guardGate();
+};
+
+#endif

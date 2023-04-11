@@ -6,7 +6,7 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 02:00:07 by ebelkhei          #+#    #+#             */
-/*   Updated: 2023/04/11 00:25:24 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2023/04/09 06:12:29 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,9 @@ class	ClapTrap
 		ClapTrap& operator=(ClapTrap& other);
 		~ClapTrap();
 		
-		void attack(const std::string& target);
-		void takeDamage(unsigned int amount);
-		void beRepaired(unsigned int amount);
-		int	 getAttackDamage();
+		void 			attack(const std::string& target);
+		void 			takeDamage(unsigned int amount);
+		void 			beRepaired(unsigned int amount);
 
 };
 
