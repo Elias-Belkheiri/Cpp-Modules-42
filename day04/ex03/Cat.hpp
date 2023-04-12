@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/09 02:51:26 by ebelkhei          #+#    #+#             */
-/*   Updated: 2023/04/11 05:31:16 by ebelkhei         ###   ########.fr       */
+/*   Created: 2023/04/11 06:07:03 by ebelkhei          #+#    #+#             */
+/*   Updated: 2023/04/11 21:58:01 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-#define SCAVTRAP_HPP
+#ifndef CAT_HPP
+#define CAT_HPP
 
-#include "ClapTrap.hpp"
+#include "Animal.hpp"
+#include "Brain.hpp"
 
-class  ScavTrap : public ClapTrap
+class Cat: public Animal
 {
-	public:
-	    ScavTrap(void);
-	    ScavTrap(std::string name);
-		ScavTrap(ScavTrap &_scavtrap);
-		ScavTrap &operator=(ScavTrap const &scavtrap);
-	    ~ScavTrap(void);
+    Brain *brain;
+    public:
+        Cat(void);
+        Cat(const Cat &other);
+        Cat& operator=(const Cat &other);
+        virtual ~Cat(void);
 
-		void attack(const std::string& target);
-		void guardGate();
+        void makeSound();
+        void setIdeas(std::string idea);
+        const Brain &getBrain() const;
 };
 
 #endif

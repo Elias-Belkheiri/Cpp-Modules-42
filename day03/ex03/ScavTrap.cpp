@@ -6,7 +6,7 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 02:51:30 by ebelkhei          #+#    #+#             */
-/*   Updated: 2023/04/11 00:33:35 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2023/04/11 05:33:45 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,25 @@ ScavTrap::ScavTrap(std::string name)
     this->attackDamage = 20;
 }
 
+ScavTrap::ScavTrap(ScavTrap &_scavtrap)
+{
+    std::cout << "ScavTrap copy constructor called" << std::endl;
+    this->name = _scavtrap.name;
+    this->hitPoints = _scavtrap.hitPoints;
+    this->energyPoints = _scavtrap.energyPoints;
+    this->attackDamage = _scavtrap.attackDamage;
+}
+
+ScavTrap &ScavTrap::operator = (ScavTrap const &scavtrap)
+{
+    std::cout << "ScavTrap overloading assignment operator called" << std::endl;
+    this->name = scavtrap.name;
+    this->hitPoints = scavtrap.hitPoints;
+    this->energyPoints = scavtrap.energyPoints;
+    this->attackDamage = scavtrap.attackDamage;
+    return (*this);
+}
+
 ScavTrap::~ScavTrap(void)
 {
     std::cout << "ScavTrap destructor called" << std::endl;
@@ -38,13 +57,13 @@ void ScavTrap::attack(const std::string& target)
 {
     if (energyPoints && attackDamage)
 	{
-		std::cout << "ScavTrap " << this->name << " attacks " << target << " causing " << attackDamage << " points of damage" << std::endl;
+		std::cout << "ScavTrap " << name << " attacks " << target << " causing " << attackDamage << " points of damage" << std::endl;
         energyPoints--;
     }
 	else if (!energyPoints)
-		std::cout << this->name << "no energy points to attack" << target << std::endl;
+		std::cout << name << "no energy points to attack" << target << std::endl;
 	else
-		std::cout << this->name << " has no attack damage points to attack " << target << std::endl;
+		std::cout << name << " has no attack damage points to attack " << target << std::endl;
 }
 
 void ScavTrap::guardGate()

@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/09 02:51:26 by ebelkhei          #+#    #+#             */
-/*   Updated: 2023/04/11 05:31:16 by ebelkhei         ###   ########.fr       */
+/*   Created: 2023/04/11 06:46:35 by ebelkhei          #+#    #+#             */
+/*   Updated: 2023/04/11 18:34:56 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-#define SCAVTRAP_HPP
+#ifndef BRAIN_HPP
+#define BRAIN_HPP
 
-#include "ClapTrap.hpp"
+#include <string>
+#include <iostream>
 
-class  ScavTrap : public ClapTrap
+
+class Brain
 {
-	public:
-	    ScavTrap(void);
-	    ScavTrap(std::string name);
-		ScavTrap(ScavTrap &_scavtrap);
-		ScavTrap &operator=(ScavTrap const &scavtrap);
-	    ~ScavTrap(void);
+    protected:
+        std::string ideas[100];
+    public:
+        Brain();
+        Brain(const Brain& other);
+        Brain& operator=(const Brain& other);
+        ~Brain();
 
-		void attack(const std::string& target);
-		void guardGate();
+        void setIdeas(std::string idea);
+        std::string getIdeas(void) const;
 };
 
 #endif

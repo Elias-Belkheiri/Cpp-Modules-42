@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/09 02:51:26 by ebelkhei          #+#    #+#             */
-/*   Updated: 2023/04/11 05:31:16 by ebelkhei         ###   ########.fr       */
+/*   Created: 2023/04/11 06:20:46 by ebelkhei          #+#    #+#             */
+/*   Updated: 2023/04/11 22:03:48 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-#define SCAVTRAP_HPP
+#include "Cat.hpp"
+#include "Dog.hpp"
 
-#include "ClapTrap.hpp"
 
-class  ScavTrap : public ClapTrap
+int main()
 {
-	public:
-	    ScavTrap(void);
-	    ScavTrap(std::string name);
-		ScavTrap(ScavTrap &_scavtrap);
-		ScavTrap &operator=(ScavTrap const &scavtrap);
-	    ~ScavTrap(void);
+    // You cannot create and instance of an abstract class
+    // Animal a;
+    Cat a;
+    Dog b;
 
-		void attack(const std::string& target);
-		void guardGate();
-};
-
-#endif
+    a.makeSound();
+    b.makeSound();
+}

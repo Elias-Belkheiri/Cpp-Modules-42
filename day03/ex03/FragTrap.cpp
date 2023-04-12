@@ -6,7 +6,7 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 02:51:30 by ebelkhei          #+#    #+#             */
-/*   Updated: 2023/04/10 00:01:01 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2023/04/11 05:49:50 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,22 +29,31 @@ FragTrap::FragTrap(std::string name)
     this->attackDamage = 30;
 }
 
+FragTrap::FragTrap(FragTrap &fragtrap)
+{
+    std::cout << "FragTrap copy constructor called" << std::endl;
+    this->name = fragtrap.name;
+    this->hitPoints = fragtrap.hitPoints;
+    this->energyPoints = fragtrap.energyPoints;
+    this->attackDamage = fragtrap.attackDamage;
+}
+
+FragTrap& FragTrap::operator=(FragTrap &other)
+{
+    std::cout << "FragTrap assignment operator called" << std::endl;
+    if (this!= &other)
+    {
+        this->name = other.name;
+        this->hitPoints = other.hitPoints;
+        this->energyPoints = other.energyPoints;
+        this->attackDamage = other.attackDamage;
+    }
+    return (*this);
+}
+
 FragTrap::~FragTrap(void)
 {
     std::cout << "FragTrap destructor called" << std::endl;
-}
-
-void FragTrap::attack(const std::string& target)
-{
-    if (energyPoints && attackDamage)
-	{
-		std::cout << "FragTrap " << name << " attacks " << target << " causing " << attackDamage << " points of damage" << std::endl;
-        energyPoints--;
-    }
-	else if (!energyPoints)
-		std::cout << name << "no energy points to attack" << target << std::endl;
-	else
-		std::cout << name << " has no attack damage points to attack " << target << std::endl;
 }
 
 void FragTrap::highFivesGuys(void)
