@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/11 06:11:21 by ebelkhei          #+#    #+#             */
-/*   Updated: 2023/05/05 16:17:08 by ebelkhei         ###   ########.fr       */
+/*   Created: 2023/04/11 06:20:46 by ebelkhei          #+#    #+#             */
+/*   Updated: 2023/04/11 22:03:48 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-#define DOG_HPP
+#include "Cat.hpp"
+#include "Dog.hpp"
 
-#include "Animal.hpp"
-#include "Brain.hpp"
 
-class Dog: public Animal
+int main()
 {
-    Brain *brain;
-    
-    public:
-        Dog(void);
-        Dog(const Dog &other);
-        Dog& operator=(const Dog &other);
-        virtual ~Dog(void);
+    // You cannot create and instance of an abstract class
+    // Animal a;
+    Cat a;
+    Dog b;
 
-        void makeSound() const;
-        std::string getType() const;
-
-};
-
-#endif
+    a.makeSound();
+    b.makeSound();
+}

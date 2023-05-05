@@ -6,7 +6,7 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 06:07:03 by ebelkhei          #+#    #+#             */
-/*   Updated: 2023/04/11 21:27:46 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2023/05/05 16:17:04 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 class Cat: public Animal
 {
     Brain *brain;
+    
     public:
         Cat(void);
         Cat(const Cat &other);

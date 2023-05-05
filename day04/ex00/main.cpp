@@ -6,7 +6,7 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 06:20:46 by ebelkhei          #+#    #+#             */
-/*   Updated: 2023/04/11 06:42:14 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2023/05/05 16:14:58 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "Dog.hpp"
 #include "WrongCat.hpp"
 
-int main()
+void test1()
 {
     const Animal* meta = new Animal();
     const Animal* j = new Dog();
@@ -23,12 +23,19 @@ int main()
     
     std::cout << j->getType() << " " << std::endl;
     std::cout << i->getType() << " " << std::endl;
-    i->makeSound(); //will output the cat sound!
     j->makeSound();
+    i->makeSound(); 
     meta->makeSound();
     wrongAnimal->makeSound();
 
-    // Delete other objects
+    delete meta;
+    delete j;
+    delete i;
     delete wrongAnimal;
-    return 0;
+}
+
+int main()
+{
+    test1();
+    while (1);
 }

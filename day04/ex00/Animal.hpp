@@ -6,7 +6,7 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 06:02:57 by ebelkhei          #+#    #+#             */
-/*   Updated: 2023/04/11 06:27:37 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2023/05/05 16:11:33 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Animal
         Animal(void);
         Animal(const Animal &other);
         Animal& operator=(const Animal &other);
-        ~Animal(void);
+        virtual ~Animal(void);
 
         virtual void makeSound() const;
         std::string getType() const;
