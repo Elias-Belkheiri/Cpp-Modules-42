@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elias <elias@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 20:45:50 by elias             #+#    #+#             */
-/*   Updated: 2023/04/20 15:09:41 by elias            ###   ########.fr       */
+/*   Updated: 2023/05/07 19:33:30 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #define FORM_HPP
 
 #include "Bureaucrat.hpp"
+
+class Bureaucrat;
 
 class Form
 {

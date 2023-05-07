@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elias <elias@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 17:07:44 by elias             #+#    #+#             */
-/*   Updated: 2023/04/19 22:11:56 by elias            ###   ########.fr       */
+/*   Updated: 2023/05/07 21:22:47 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,5 @@
 
 int main()
 {
-	// Form a("Hmeda", 4, 5);
-	// std::cout << a;
 
-	// Form a("Hmeda", 400, 5);
-	try
-	{
-		Form a("Hmeda", 4, -578);
-		std::cout << a << std::endl;
-	}
-	catch (std::exception &e)
-	{
-		std::cerr << e.what() << '\n';
-	}
 }

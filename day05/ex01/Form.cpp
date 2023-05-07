@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elias <elias@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 20:54:23 by elias             #+#    #+#             */
-/*   Updated: 2023/04/20 15:12:39 by elias            ###   ########.fr       */
+/*   Updated: 2023/05/07 21:12:10 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,17 @@ Form::Form(): is_signed(false), gradeToSign(0), gradeToExecute(0)
 Form::Form(const std::string name, int _gradeToSign, int _gradeToExecute): name(name), is_signed(false), gradeToSign(_gradeToSign), gradeToExecute(_gradeToExecute)
 {
     std::cout << "Overload Constructor called" << std::endl;
-    if (_gradeToSign > 150 || _gradeToExecute > 150)
-        throw Form::GradeTooLowException();
-    if (_gradeToSign < 1 || _gradeToExecute < 1)
-        throw Form::GradeTooHighException();    
+    try
+    {
+        if (_gradeToSign > 150 || _gradeToExecute > 150)
+            throw Form::GradeTooLowException();
+        if (_gradeToSign < 1 || _gradeToExecute < 1)
+            throw Form::GradeTooHighException();
+    }
+    catch(std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
 }
 
 Form::Form(const Form &other): name(other.name), is_signed(other.is_signed), gradeToSign(other.gradeToSign), gradeToExecute(other.gradeToExecute)
@@ -86,13 +93,21 @@ const char *Form::GradeTooLowException:: what() const throw()
 
 bool    Form::beSigned(const Bureaucrat &burea)
 {
-    if (burea.getGrade() > getGradeToSign())
-        throw Form::GradeTooLowException();
-    if (isSigned())
+    try
     {
-        std::cout << "Form is already signed" << std::endl;
-        return false;    
+        if (burea.getGrade() > getGradeToSign())
+            throw Form::GradeTooLowException();    
+        if (isSigned())
+        {
+            std::cout << "Form is already signed" << std::endl;
+            return false;    
+        }
+        this->is_signed = true;
+        return true;
     }
-    this->is_signed = true;
-    return true;
+    catch(std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+        return false;
+    }
 }
