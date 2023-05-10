@@ -6,7 +6,7 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 06:11:21 by ebelkhei          #+#    #+#             */
-/*   Updated: 2023/04/11 06:24:05 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2023/05/06 12:11:40 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ class Dog: public Animal
         ~Dog(void);
 
         void makeSound() const;
-        std::string getType() const;
 
 };
 

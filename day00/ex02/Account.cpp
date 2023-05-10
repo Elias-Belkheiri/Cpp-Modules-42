@@ -6,7 +6,7 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 00:47:50 by ebelkhei          #+#    #+#             */
-/*   Updated: 2023/04/04 23:35:09 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2023/05/08 22:29:58 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,6 @@ void Account::displayAccountsInfos( void )
     std::cout << "total:" << getTotalAmount() << ";";
     std::cout << "deposits:" << getNbDeposits() << ";";
     std::cout << "withdrawals:" << getNbWithdrawals() << std::endl;
-
 }
 
 void Account::displayStatus() const

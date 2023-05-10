@@ -6,7 +6,7 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 15:22:08 by ebelkhei          #+#    #+#             */
-/*   Updated: 2023/05/05 16:07:25 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2023/05/09 13:12:30 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,13 @@ Ice::Ice()
 Ice::Ice(const Ice& other)
 {
     std::cout << "Ice Copy constructor called" << std::endl;
-    this->type = other.type;
+    (void)other;
 }
 
 Ice& Ice::operator=(const Ice& other)
 {
     std::cout << "Ice Assignment constructor called" << std::endl;
-    if (this != &other)
-        this->type = other.type;
+    (void)other;
     return (*this);
 }
 
@@ -44,5 +43,8 @@ AMateria* Ice::clone() const
 
 void Ice::use(ICharacter& target)
 {
+    ICharacter *nl = 0;
+    if (&target == nl)
+        return ;
     std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 }

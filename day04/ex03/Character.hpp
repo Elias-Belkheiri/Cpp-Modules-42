@@ -6,7 +6,7 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 16:20:41 by ebelkhei          #+#    #+#             */
-/*   Updated: 2023/05/04 22:44:35 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2023/05/06 14:13:37 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ class Character: public ICharacter
     private:
         std::string name;
         AMateria*   inventory[4];
+
     public:
         Character();
         Character(std::string name);

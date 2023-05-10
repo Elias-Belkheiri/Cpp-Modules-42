@@ -6,7 +6,7 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 21:28:42 by ebelkhei          #+#    #+#             */
-/*   Updated: 2023/05/05 15:59:27 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2023/05/09 12:40:03 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,8 @@ void test2()
 
 int main()
 {
-    test1();
-    // test2();
+    // test1();
+    test2();
     
-    while (1);
     return 0;
 }

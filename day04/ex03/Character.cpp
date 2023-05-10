@@ -6,7 +6,7 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 16:23:08 by ebelkhei          #+#    #+#             */
-/*   Updated: 2023/05/05 15:21:19 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2023/05/09 13:07:57 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Character::Character()
 
 Character::Character(std::string name)
 {
-    std::cout << "Character overload constructor called" << std::endl;
+    std::cout << "Character overloaded constructor called" << std::endl;
     this->name = name;
     for (int i = 0; i < 4; i++)
         this->inventory[i] = NULL;
@@ -30,19 +30,24 @@ Character::Character(std::string name)
 Character::Character(const Character& other)
 {
     std::cout << "Character Copy constructor called" << std::endl;
-    this->name = other.name;
     *this = other;
 }
 
 Character& Character::operator=(const Character& other)
 {
+    if (this == &other)
+        return (*this);
     std::cout << "Character Assignment constructor called" << std::endl;
     this->name = other.name;
     for (int i = 0; i < 4; i++)
     {
         if (this->inventory[i])
+        {
             delete this->inventory[i];
-        this->inventory[i] = other.inventory[i]->clone();
+            this->inventory[i] = NULL;
+        }
+        if (other.inventory[i])
+            this->inventory[i] = other.inventory[i]->clone();
     }
     return (*this);
 }

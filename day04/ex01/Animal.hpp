@@ -6,7 +6,7 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 06:02:57 by ebelkhei          #+#    #+#             */
-/*   Updated: 2023/04/11 07:22:48 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2023/05/09 12:47:11 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ class Animal
 {
     protected:
         std::string type;
+        
     public:
         Animal(void);
         Animal(const Animal &other);

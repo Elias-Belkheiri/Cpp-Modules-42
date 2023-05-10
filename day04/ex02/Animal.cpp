@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   AAnimal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,30 +12,30 @@
 
 #include "Animal.hpp"
 
-Animal::Animal(void)
+AAnimal::AAnimal(void)
 {
-    std::cout << "Animal constructor called" << std::endl;
+    std::cout << "AAnimal constructor called" << std::endl;
 }
 
-Animal::Animal(const Animal &other)
+AAnimal::AAnimal(const AAnimal &other)
 {
-    std::cout << "Animal copy constructor called" << std::endl;
+    std::cout << "AAnimal copy constructor called" << std::endl;
     this->type = other.type;
 }
 
-Animal& Animal::operator=(const Animal &other)
+AAnimal& AAnimal::operator=(const AAnimal &other)
 {
-    std::cout << "Animal assignment operator called" << std::endl;
+    std::cout << "AAnimal assignment operator called" << std::endl;
     this->type = other.type;
     return (*this);
 }
 
-Animal::~Animal(void)
+AAnimal::~AAnimal(void)
 {
-    std::cout << "Animal destructor called" << std::endl;
+    std::cout << "AAnimal destructor called" << std::endl;
 }
 
-std::string Animal::getType() const
+std::string AAnimal::getType() const
 {
     return type;
 }

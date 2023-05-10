@@ -6,7 +6,7 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 06:46:35 by ebelkhei          #+#    #+#             */
-/*   Updated: 2023/04/11 18:34:56 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2023/05/08 15:07:06 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,9 @@
 
 class Brain
 {
-    protected:
+    private:
         std::string ideas[100];
+    
     public:
         Brain();
         Brain(const Brain& other);

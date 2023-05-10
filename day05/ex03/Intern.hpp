@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Intern.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/11 06:02:57 by ebelkhei          #+#    #+#             */
-/*   Updated: 2023/05/06 12:10:40 by ebelkhei         ###   ########.fr       */
+/*   Created: 2023/05/08 18:41:26 by ebelkhei          #+#    #+#             */
+/*   Updated: 2023/05/10 16:51:07 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef INTERN_HPP
+# define INTERN_HPP
 
-# include <iostream>
-# include <string>
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
-class Animal
+class Intern
 {
-    protected:
-        std::string type;
-
     public:
-        Animal(void);
-        Animal(const Animal &other);
-        Animal& operator=(const Animal &other);
-        virtual ~Animal(void);
+        Intern();
+        Intern(const Intern &other);
+        Intern &operator=(const Intern &other);
+        ~Intern();
 
-        virtual void makeSound() const;
-        std::string getType() const;
+        Form *makeForm(const std::string &name, const std::string &target);
 };
 
 #endif
