@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serialization.hpp                                  :+:      :+:    :+:   */
+/*   Base.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/11 20:20:59 by ebelkhei          #+#    #+#             */
-/*   Updated: 2023/05/13 14:40:03 by ebelkhei         ###   ########.fr       */
+/*   Created: 2023/05/13 14:29:26 by ebelkhei          #+#    #+#             */
+/*   Updated: 2023/05/13 14:57:09 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SERIALIZATION_HPP
-# define SERIALIZATION_HPP
+#ifndef BASE_HPP
+#define BASE_HPP
 
 #include <iostream>
 #include <cstdlib>
-#include "Data.hpp"
 
-class Serialization
+class Base
 {
     public:
-        Serialization();
-        Serialization(const Serialization &src);
-        Serialization &operator=(const Serialization &rhs);
-        ~Serialization();
-
-        static uintptr_t	serialize(Data* ptr);
-        static Data		    *deserialize(uintptr_t raw);
+        virtual ~Base();
 };
 
 #endif
