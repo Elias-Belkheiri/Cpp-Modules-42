@@ -6,7 +6,7 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 17:07:44 by elias             #+#    #+#             */
-/*   Updated: 2023/05/10 16:23:41 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2023/05/16 11:39:58 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,23 +19,23 @@
 
 int main()
 {
-    // Bureaucrat b("A", 15);
+    // Bureaucrat b("A", 14);
     // ShrubberyCreationForm a("Shobee");
-    // a.signForm(b);
+    // a.beSigned(b);
     // a.checkAndExecute(b);
 
-    // Bureaucrat b("A", 15);
+    // Bureaucrat b("A", 10);
     // RobotomyRequestForm a("Shobee");
-    // a.signForm(b);
+    // a.beSigned(b);
     // a.checkAndExecute(b);
 
-    // Bureaucrat b("A", 2);
-    // PresidentialPardonForm a("Shobee");
-    // a.signForm(b);
-    // a.checkAndExecute(b);
+    Bureaucrat b("A", 2);
+    PresidentialPardonForm a("Shobee");
+    a.beSigned(b);
+    a.checkAndExecute(b);
 
     // PresidentialPardonForm a("Shobee");
     // Bureaucrat b("A", 20);
-    // b.signForm(a);
+    // b.beSigned(b);
     // b.executeForm(a);
 }

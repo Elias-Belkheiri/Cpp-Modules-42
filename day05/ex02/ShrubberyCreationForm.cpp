@@ -6,7 +6,7 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 21:38:00 by ebelkhei          #+#    #+#             */
-/*   Updated: 2023/05/10 14:50:42 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2023/05/16 11:17:21 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,19 @@
 
 ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", 145, 137)
 {
-    std::cout << "ShrubberyCreationForm Default constructor called" << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target) : AForm("ShrubberyCreationForm", 145, 137)
 {
-    std::cout << "ShrubberyCreationForm Overload constructor called" << std::endl;
     setTarget(target);
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other) : AForm(other)
 {
-    std::cout << "ShrubberyCreationForm Copy constructor called" << std::endl;
 }
 
 ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &other)
 {
-    std::cout << "ShrubberyCreationForm Copy assignment constructor called" << std::endl;
     if (other.isSigned())
         this->signForm();
     return *this;

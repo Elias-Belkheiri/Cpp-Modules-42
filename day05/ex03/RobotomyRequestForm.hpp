@@ -6,16 +6,16 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 21:49:36 by ebelkhei          #+#    #+#             */
-/*   Updated: 2023/05/10 16:51:21 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2023/05/10 15:01:36 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ROBOTOMYREQUESTFORM_HPP
 #define ROBOTOMYREQUESTFORM_HPP
 
-#include "Form.hpp"
+#include "AForm.hpp"
 
-class RobotomyRequestForm : public Form
+class RobotomyRequestForm : public AForm
 {
     public:
         RobotomyRequestForm();

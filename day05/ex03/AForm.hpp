@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                          :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef Form_HPP
-#define Form_HPP
+#ifndef AForm_HPP
+#define AForm_HPP
 
 #include "Bureaucrat.hpp"
 #include <iostream>
@@ -19,7 +19,7 @@
 
 class Bureaucrat;
 
-class Form
+class AForm
 {
 	private:
 		const std::string	name;
@@ -29,11 +29,11 @@ class Form
 		const int			gradeToExecute;
 
 	public:
-		Form();
-		Form(const std::string name, int _gradeToSign, int _gradeToExecute);
-		Form(const Form &other);
-		Form &operator=(const Form &other);
-		~Form();
+		AForm();
+		AForm(const std::string name, int _gradeToSign, int _gradeToExecute);
+		AForm(const AForm &other);
+		AForm &operator=(const AForm &other);
+		~AForm();
 		
 		std::string 		getName() const;
 		bool				isSigned() const;
@@ -57,13 +57,13 @@ class Form
 			public:
 				const char* what() const throw();
 		};
-		class FormNotSignedException: public std::exception
+		class AFormNotSignedException: public std::exception
 		{
 			public:
 				const char* what() const throw();
 		};
 };
 
-std::ostream &operator<<(std::ostream &out, const Form &Form);
+std::ostream &operator<<(std::ostream &out, const AForm &AForm);
 
 #endif

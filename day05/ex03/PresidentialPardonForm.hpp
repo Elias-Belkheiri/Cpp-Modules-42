@@ -6,16 +6,16 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 21:51:55 by ebelkhei          #+#    #+#             */
-/*   Updated: 2023/05/10 16:51:15 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2023/05/10 15:09:41 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PRESIDENTIALPARDONFORM_HPP
 #define PRESIDENTIALPARDONFORM_HPP
 
-#include "Form.hpp"
+#include "AForm.hpp"
 
-class PresidentialPardonForm : public Form
+class PresidentialPardonForm : public AForm
 {
     public:
         PresidentialPardonForm();

@@ -6,7 +6,7 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 18:44:14 by ebelkhei          #+#    #+#             */
-/*   Updated: 2023/05/10 16:55:37 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2023/05/16 11:55:44 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ Intern::~Intern()
     std::cout << "Intern destructor" << std::endl;
 }
 
-Form *Intern::makeForm(const std::string &name, const std::string &target)
+AForm *Intern::makeForm(const std::string &name, const std::string &target)
 {
-    Form *form = NULL;
+    AForm *form = NULL;
     int i = 0;
     std::string forms[3] = {"presidential pardon", "robotomy request", "shrubbery creation"};
     

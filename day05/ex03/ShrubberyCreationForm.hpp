@@ -6,16 +6,16 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 21:35:32 by ebelkhei          #+#    #+#             */
-/*   Updated: 2023/05/10 16:51:26 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2023/05/10 14:33:05 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SHRUBBERYCREATIONFORM_HPP
 #define SHRUBBERYCREATIONFORM_HPP
 
-#include "Form.hpp"
+#include "AForm.hpp"
 
-class ShrubberyCreationForm : public Form
+class ShrubberyCreationForm : public AForm
 {
     public:
         ShrubberyCreationForm();

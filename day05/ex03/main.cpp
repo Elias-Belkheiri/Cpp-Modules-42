@@ -6,7 +6,7 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 17:07:44 by elias             #+#    #+#             */
-/*   Updated: 2023/05/10 16:56:25 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2023/05/16 11:58:36 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,13 @@
 
 int main()
 {
-    // Intern someRandomIntern;
-    // Form* rrf;
-    // rrf = someRandomIntern.makeForm("robotomy request", "Bender");
-    
     Intern someRandomIntern;
-    Form* rrf;
-    rrf = someRandomIntern.makeForm("est", "Bender");
+    AForm* a;
+    a = someRandomIntern.makeForm("robotomy request", "Bender");
+    
+    std::cout << std::endl;
+
+    Intern someRandomIntern2;
+    AForm* b;
+    b = someRandomIntern2.makeForm("est", "Bender");
 }

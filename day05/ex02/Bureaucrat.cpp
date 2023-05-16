@@ -6,7 +6,7 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 17:26:19 by elias             #+#    #+#             */
-/*   Updated: 2023/05/10 16:14:25 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2023/05/16 11:26:14 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,10 @@
 
 Bureaucrat::Bureaucrat()
 {
-    std::cout << "Default constructor called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(std::string _name, int _grade): name(_name)
 {
-    std::cout << "Overload constructor called" << std::endl;
 	try
 	{
 		if (_grade < 1)
@@ -38,15 +36,18 @@ Bureaucrat::Bureaucrat(std::string _name, int _grade): name(_name)
 
 Bureaucrat::Bureaucrat(const Bureaucrat &other)
 {
-    std::cout << "Copy constructor called" << std::endl;
     this->grade = other.grade;
 }
 
 Bureaucrat &Bureaucrat::operator = (const Bureaucrat &other)
 {
-    std::cout << "Copy assignment constructor called" << std::endl;
     this->grade = other.grade;
     return *this;
+}
+
+Bureaucrat::~Bureaucrat()
+{
+	std::cout << "Destructor called for Bureaucrat " << std::endl;
 }
 
 std::string Bureaucrat::getName() const
@@ -104,11 +105,6 @@ std::ostream& operator<<(std::ostream& out, Bureaucrat &bureaucrat)
 {
 	out << bureaucrat.getName() << " bureaucrat grade " << bureaucrat.getGrade() << std::endl;
 	return out;
-}
-
-Bureaucrat::~Bureaucrat()
-{
-	std::cout << "Destructor called for Bureaucrat " << std::endl;
 }
 
 void Bureaucrat::signForm(AForm &form)

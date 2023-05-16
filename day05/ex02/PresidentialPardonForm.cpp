@@ -14,24 +14,20 @@
 
 PresidentialPardonForm::PresidentialPardonForm() : AForm("PresidentialPardonForm", 25, 5)
 {
-    std::cout << "PresidentialPardonForm Default constructor called" << std::endl;
 }
 
 PresidentialPardonForm::PresidentialPardonForm(const std::string &target) : AForm("PresidentialPardonForm", 25, 5)
 {
-    std::cout << "PresidentialPardonForm Overload constructor called" << std::endl;
     setTarget(target);
 }
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &other) : AForm(other)
 {
-    std::cout << "PresidentialPardonForm Copy constructor called" << std::endl;
     setTarget(other.getTarget());
 }
 
 PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPardonForm &other)
 {
-    std::cout << "PresidentialPardonForm Copy assignment constructor called" << std::endl;
     setTarget(other.getTarget());
     if (other.isSigned())
         this->signForm();
