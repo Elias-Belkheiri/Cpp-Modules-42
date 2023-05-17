@@ -6,7 +6,7 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 20:54:23 by elias             #+#    #+#             */
-/*   Updated: 2023/05/16 11:36:40 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2023/05/16 16:47:29 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,40 +14,28 @@
 
 Form::Form(): is_signed(false), gradeToSign(0), gradeToExecute(0)
 {
-    std::cout << "Default constructor called" << std::endl;
 }
 
 Form::Form(const std::string name, int _gradeToSign, int _gradeToExecute): name(name), is_signed(false), gradeToSign(_gradeToSign), gradeToExecute(_gradeToExecute)
 {
-    std::cout << "Overload Constructor called" << std::endl;
-    try
-    {
-        if (_gradeToSign > 150 || _gradeToExecute > 150)
-            throw Form::GradeTooLowException();
-        if (_gradeToSign < 1 || _gradeToExecute < 1)
-            throw Form::GradeTooHighException();
-    }
-    catch(std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-    }
+    if (_gradeToSign > 150 || _gradeToExecute > 150)
+        throw Form::GradeTooLowException();
+    if (_gradeToSign < 1 || _gradeToExecute < 1)
+        throw Form::GradeTooHighException();
 }
 
 Form::Form(const Form &other): name(other.name), is_signed(other.is_signed), gradeToSign(other.gradeToSign), gradeToExecute(other.gradeToExecute)
 {
-    std::cout << "Copy Constructor called" << std::endl;
 }
 
 Form& Form::operator=(const Form &other)
 {
-    std::cout << "Copy assignment constructor called" << std::endl;
     (void)other;
     return (*this);
 }
 
 Form::~Form()
 {
-    std::cout << "Destructor called for form" << std::endl;
 }
 
 std::string Form::getName() const
@@ -93,22 +81,14 @@ const char *Form::GradeTooLowException:: what() const throw()
 
 bool    Form::beSigned(const Bureaucrat &burea)
 {
-    try
+    if (burea.getGrade() > getGradeToSign())
+        throw Form::GradeTooLowException();    
+    if (isSigned())
     {
-        if (burea.getGrade() > getGradeToSign())
-            throw AForm::GradeTooLowException();    
-        if (isSigned())
-        {
-            std::cout << "AForm is already signed" << std::endl;
-            return false;    
-        }
-        this->is_signed = true;
-        std::cout << burea.getName() << " signed " << getName() << std::endl;
-        return true;
+        std::cout << "Form is already signed" << std::endl;
+        return false;    
     }
-    catch(std::exception& e)
-    {
-        std::cout << burea.getName() << " cannot sign " << getName() << std::endl;
-        return false;
-    }
+    this->is_signed = true;
+    std::cout << burea.getName() << " signed " << getName() << std::endl;
+    return true;
 }

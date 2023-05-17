@@ -6,7 +6,7 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 21:38:00 by ebelkhei          #+#    #+#             */
-/*   Updated: 2023/05/16 11:17:21 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2023/05/16 17:08:00 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
-    std::cout << "ShrubberyCreationForm Destructor called" << std::endl;
 }
 
 

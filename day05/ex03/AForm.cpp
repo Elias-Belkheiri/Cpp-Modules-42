@@ -6,7 +6,7 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 20:54:23 by elias             #+#    #+#             */
-/*   Updated: 2023/05/16 11:36:33 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2023/05/16 17:07:56 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,10 @@ AForm::AForm(): is_signed(false), gradeToSign(0), gradeToExecute(0)
 
 AForm::AForm(const std::string name, int _gradeToSign, int _gradeToExecute): name(name), is_signed(false), gradeToSign(_gradeToSign), gradeToExecute(_gradeToExecute)
 {
-    try
-    {
-        if (_gradeToSign > 150 || _gradeToExecute > 150)
-            throw AForm::GradeTooLowException();
-        if (_gradeToSign < 1 || _gradeToExecute < 1)
-            throw AForm::GradeTooHighException();
-    }
-    catch(std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-    }
+    if (_gradeToSign > 150 || _gradeToExecute > 150)
+        throw AForm::GradeTooLowException();
+    if (_gradeToSign < 1 || _gradeToExecute < 1)
+        throw AForm::GradeTooHighException();
 }
 
 AForm::AForm(const AForm &other): name(other.name), is_signed(other.is_signed), gradeToSign(other.gradeToSign), gradeToExecute(other.gradeToExecute)
@@ -45,7 +38,6 @@ AForm& AForm::operator=(const AForm &other)
 
 AForm::~AForm()
 {
-    std::cout << "Destructor called for form" << std::endl;
 }
 
 std::string AForm::getName() const
@@ -96,41 +88,26 @@ const char *AForm::AFormNotSignedException:: what() const throw()
 
 bool    AForm::beSigned(const Bureaucrat &burea)
 {
-    try
+    if (burea.getGrade() > getGradeToSign())
+        throw AForm::GradeTooLowException();    
+    if (isSigned())
     {
-        if (burea.getGrade() > getGradeToSign())
-            throw AForm::GradeTooLowException();    
-        if (isSigned())
-        {
-            std::cout << "AForm is already signed" << std::endl;
-            return false;    
-        }
-        this->is_signed = true;
-        std::cout << burea.getName() << " signed " << getName() << std::endl;
-        return true;
+        std::cout << "AForm is already signed" << std::endl;
+        return false;    
     }
-    catch(std::exception& e)
-    {
-        std::cout << burea.getName() << " cannot sign " << getName() << std::endl;
-        return false;
-    }
+    this->is_signed = true;
+    std::cout << burea.getName() << " signed " << getName() << std::endl;
+    return true;
 }
 
 void AForm::checkAndExecute(Bureaucrat const & executor) const
 {
-    try
-    {
-        if (executor.getGrade() > getGradeToExec())
-            throw AForm::GradeTooLowException();
-        if (!isSigned())
-            throw AForm::AFormNotSignedException();
-        execute(executor);
-        std::cout << executor.getName() << " executed " << this->getName() << std::endl;
-    }
-    catch(std::exception& e)
-    {
-        std::cout << executor.getName() << " cannot execute " << this->getName() << std::endl;
-    }
+    if (executor.getGrade() > getGradeToExec())
+        throw AForm::GradeTooLowException();
+    if (!isSigned())
+        throw AForm::AFormNotSignedException();
+    execute(executor);
+    std::cout << executor.getName() << " executed " << this->getName() << std::endl;
 }
 
 void AForm::signForm()

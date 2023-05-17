@@ -6,7 +6,7 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 18:44:14 by ebelkhei          #+#    #+#             */
-/*   Updated: 2023/05/16 11:55:44 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2023/05/17 11:13:19 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,17 +29,17 @@ Intern &Intern::operator=(const Intern &other)
 
 Intern::~Intern()
 {
-    std::cout << "Intern destructor" << std::endl;
 }
 
 AForm *Intern::makeForm(const std::string &name, const std::string &target)
 {
-    AForm *form = NULL;
     int i = 0;
+    AForm *form = NULL;
     std::string forms[3] = {"presidential pardon", "robotomy request", "shrubbery creation"};
     
     while (i < 3 && name != forms[i])
         i++;
+        
     if (name != forms[i])
     {
         std::cout << "Intern can't create " << name << " form" << std::endl;

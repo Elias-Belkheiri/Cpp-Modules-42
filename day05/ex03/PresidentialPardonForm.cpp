@@ -36,7 +36,6 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPard
 
 PresidentialPardonForm::~PresidentialPardonForm()
 {
-    std::cout << "PresidentialPardonForm Destructor called" << std::endl;
 }
 
 

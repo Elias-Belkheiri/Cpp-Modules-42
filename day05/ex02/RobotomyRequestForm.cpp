@@ -6,7 +6,7 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 21:38:00 by ebelkhei          #+#    #+#             */
-/*   Updated: 2023/05/16 11:17:38 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2023/05/16 17:07:37 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,23 +36,21 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &o
 
 RobotomyRequestForm::~RobotomyRequestForm()
 {
-    std::cout << "RobotomyRequestForm Destructor called" << std::endl;
 }
 
 void RobotomyRequestForm::checkAndExecute(Bureaucrat const & executor) const
 {
-    try
-    {
-        if (executor.getGrade() > getGradeToExec())
-            throw AForm::GradeTooLowException();
-        if (!isSigned())
-            throw AForm::AFormNotSignedException();
-        execute(executor);
-    }
-    catch(std::exception& e)
+    if (executor.getGrade() > getGradeToExec())
     {
         std::cerr << "The robotomy failed" << std::endl;
+        throw AForm::GradeTooLowException();
     }
+    if (!isSigned())
+    {
+        std::cerr << "The robotomy failed" << std::endl;
+        throw AForm::AFormNotSignedException();
+    }
+    execute(executor);
 }
 
 void RobotomyRequestForm::execute(Bureaucrat const &executor) const
