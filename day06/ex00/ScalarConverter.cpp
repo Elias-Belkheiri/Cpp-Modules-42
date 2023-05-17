@@ -6,7 +6,7 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 14:51:18 by ebelkhei          #+#    #+#             */
-/*   Updated: 2023/05/11 20:16:30 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2023/05/17 15:06:46 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,14 @@ bool onlyDigits(std::string str)
     return true;
 }
 
+bool is_inf(std::string str)
+{
+    if (str == "-inff" || str == "+inff" || str == "nanf"
+        || str == "-inf" || str == "+inf" || str == "nan")
+        return true;
+    return false;
+}
+
 void ScalarConverter::printDouble(std::string str)
 {
     double i = atof(str.c_str());
@@ -71,39 +79,43 @@ void ScalarConverter::printDouble(std::string str)
         std::cout << "impossible";
     else
     {
+        if (!fmod(i, 1.0))
+            std::cout << std::setprecision(1) << std::fixed;
         std::cout << static_cast<double>(i);
-        if (str.find('.') == std::string::npos)
-            std::cout << ".0";
     }
 }
 
 void ScalarConverter::printFloat(std::string str)
 {
-    float i = atof(str.c_str());
+    double i = atof(str.c_str());
 
     if (str == "-inff" || str == "+inff" || str == "nanf")
         std::cout << str;
     else if ((!i && !isdigit(str[0]) && str[0] != '-' && str[0] != '+')
-            || ((str[0] == '-' || str[0] == '+') && !isdigit(str[1]) && !i))
+            || ((str[0] == '-' || str[0] == '+') && !isdigit(str[1]) && !i)
+            || i > std::numeric_limits<float>::max())
         std::cout << "impossible";
     else
     {
+        if (!fmod(i, 1.0))
+            std::cout << std::setprecision(1) << std::fixed;
         std::cout << static_cast<float>(i);
-        if (str.find('.') == std::string::npos)
-            std::cout << ".0";
         std::cout << "f";
     }
 }
 
 void    ScalarConverter::printInt(std::string str)
 {
-    int i = atoi(str.c_str());
+    long int i = atol(str.c_str());
 
     if (str == "-inff" || str == "+inff" || str == "nanf"
         || str == "-inf" || str == "+inf" || str == "nan")
         std::cout << "impossible";
+        
     else if ((!i && !isdigit(str[0]) && str[0] != '-' && str[0] != '+')
-            || ((str[0] == '-' || str[0] == '+') && !isdigit(str[1]) && !i))
+            || ((str[0] == '-' || str[0] == '+') && !isdigit(str[1]) && !i)
+            || i > INT_MAX)
+
         std::cout << "impossible";
     else
         std::cout << i;
