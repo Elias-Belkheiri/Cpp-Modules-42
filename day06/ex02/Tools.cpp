@@ -6,7 +6,7 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 14:43:36 by ebelkhei          #+#    #+#             */
-/*   Updated: 2023/05/13 15:16:00 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2023/05/18 09:38:31 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 Base *generate(void)
 {
+    srand(time(NULL));
     int i = rand() % 3;
 
     if (i == 0)

@@ -6,7 +6,7 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 14:51:18 by ebelkhei          #+#    #+#             */
-/*   Updated: 2023/05/17 15:06:46 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2023/05/18 09:29:43 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,17 @@ void    ScalarConverter::convert(std::string str)
 bool onlyDigits(std::string str)
 {
     int d = 0;
+    int f = 0;
     
     for (size_t i = 0; i < str.length(); i++)
     {
         if (i == 0 && (str[i] == '-' || str[i] == '+'))
             continue;
-        if (i == str.length() - 1 && str[i] == 'f')
+        if (str[i] == 'f' && !f)
+        {
+            f++;
             continue;
+        }
         if (i && !d && str[i] == '.')
         {
             d++;
