@@ -6,7 +6,7 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 14:51:18 by ebelkhei          #+#    #+#             */
-/*   Updated: 2023/05/18 09:29:43 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2023/05/18 11:15:46 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,17 +127,17 @@ void    ScalarConverter::printInt(std::string str)
 
 void    ScalarConverter::printChar(std::string str)
 {
-    char c;
+    int c;
+    c = atoi(str.c_str());
     
     if (str.length() == 1 && !isdigit(str[0]))
-        std::cout << "'" << str[0] << "'";
-    else if (onlyDigits(str))
+        std::cout << "'" << str[0] << "'";    
+    else if (onlyDigits(str) && isascii(c))
     {
-        c = static_cast<char>(atoi(str.c_str()));
         if (!isprint(c))
             std::cout << "Non displayable";
         else
-        std::cout << "'" << c << "'";
+        std::cout << "'" << static_cast<char>(c) << "'";
     }
     else
         std::cout << "impossible";
