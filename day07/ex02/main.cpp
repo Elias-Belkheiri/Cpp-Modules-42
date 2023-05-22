@@ -6,7 +6,7 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 16:26:47 by ebelkhei          #+#    #+#             */
-/*   Updated: 2023/05/19 10:25:16 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2023/05/19 16:13:34 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ void test1()
     
     Array<std::string> b = a;
     for (size_t i = 0; i < a.size(); i++)
-        a[i] = "hello";
+        b[i] = "hello";
     
     for(size_t i = 0; i < b.size(); i++)
     {
@@ -102,6 +102,6 @@ void test1()
 
 int main()
 {
-    // test();
+    test();
     // test1();
 }

@@ -4,7 +4,7 @@ CC		= c++
 
 CFLAGS	= -Wall -Wextra -Werror -std=c++98
 
-NAME	= Sed_is_for_losers
+NAME	= Iterator
 
 all		: $(NAME)
 
