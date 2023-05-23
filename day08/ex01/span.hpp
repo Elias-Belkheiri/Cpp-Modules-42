@@ -6,7 +6,7 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 13:24:18 by ebelkhei          #+#    #+#             */
-/*   Updated: 2023/05/23 11:45:16 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2023/05/23 16:53:20 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,10 @@ class Span
 
 		void 	addNumber(int n);
 		void	printVec(std::vector<int> vec);
+		void	addElements(std::vector<int>::iterator begin, std::vector<int>::iterator end);
 		int		shortestSpan();
 		int		longestSpan();
-
+		
 		// Exceptions
 		class FullException : public std::exception
 		{

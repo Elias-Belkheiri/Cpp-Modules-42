@@ -6,7 +6,7 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 13:27:35 by ebelkhei          #+#    #+#             */
-/*   Updated: 2023/05/23 15:19:53 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2023/05/23 16:53:17 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,14 @@ int Span::longestSpan()
     span = tmp[tmp.size() - 1] - tmp[0];
 
     return (span);
+}
+
+void Span::addElements(std::vector<int>::iterator begin, std::vector<int>::iterator end)
+{
+    if (this->vec.size() + std::distance(begin, end) > this->n)
+        throw Span::FullException();
+
+    vec.insert(vec.end(), begin, end);
 }
 
 // Exceptions
