@@ -6,7 +6,7 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 13:27:35 by ebelkhei          #+#    #+#             */
-/*   Updated: 2023/05/21 15:35:57 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2023/05/23 15:19:53 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,10 @@ Span &Span::operator=(const Span &rhs)
     return (*this);
 }
 
-void Span::printVec()
+void Span::printVec(std::vector<int> vec)
 {
-    for (size_t i = 0; i < this->vec.size(); i++)
-        std::cout << this->vec[i] << " ";
+    for (size_t i = 0; i < vec.size(); i++)
+        std::cout << vec[i] << " ";
     std::cout << std::endl;
 }
 
@@ -54,21 +54,17 @@ void Span::addNumber(int n)
 int Span::shortestSpan()
 {
     int span;
+    std::vector<int> tmp = this->vec;
 
     if (this->vec.size() < 2)
         throw Span::NoSpanException();
-        
-    std::cout << "befor sort: ";
-    this->printVec();
-    std::sort(this->vec.begin(), this->vec.end());
-    std::cout << "after sort: ";
-    this->printVec();
     
-    span = this->vec[1] - this->vec[0];
-    for(size_t i = 1; i < this->vec.size() - 1; i++)
+    std::sort(tmp.begin(), tmp.end());    
+    span = tmp[1] - tmp[0];
+    for(size_t i = 1; i < tmp.size() - 1; i++)
     {
-        if (this->vec[i + 1] - this->vec[i] < span)
-            span = this->vec[i + 1] - this->vec[i];
+        if (tmp[i + 1] - tmp[i] < span)
+            span = tmp[i + 1] - tmp[i];
     }
 
     return (span);
@@ -77,17 +73,13 @@ int Span::shortestSpan()
 int Span::longestSpan()
 {
     int span;
+    std::vector<int> tmp = this->vec;
 
     if (this->vec.size() < 2)
         throw Span::NoSpanException();
     
-    std::cout << "befor sort: ";
-    this->printVec();
-    std::sort(this->vec.begin(), this->vec.end());
-    std::cout << "after sort: ";
-    this->printVec();
-    
-    span = this->vec[this->vec.size() - 1] - this->vec[0];
+    std::sort(tmp.begin(), tmp.end()); 
+    span = tmp[tmp.size() - 1] - tmp[0];
 
     return (span);
 }

@@ -6,7 +6,7 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 13:24:18 by ebelkhei          #+#    #+#             */
-/*   Updated: 2023/05/21 14:56:50 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2023/05/23 11:45:16 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class Span
 		Span &operator=(const Span &rhs);
 
 		void 	addNumber(int n);
-		void	printVec();
+		void	printVec(std::vector<int> vec);
 		int		shortestSpan();
 		int		longestSpan();
 

@@ -6,7 +6,7 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 13:36:56 by ebelkhei          #+#    #+#             */
-/*   Updated: 2023/05/21 15:00:30 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2023/05/23 15:18:22 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int main()
     
     try
     {
-        // std::cout << sp.shortestSpan() << std::endl;
+        std::cout << sp.shortestSpan() << std::endl;
         std::cout << sp.longestSpan() << std::endl;
     }
     catch (std::exception &e)
