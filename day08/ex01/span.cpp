@@ -6,7 +6,7 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 13:27:35 by ebelkhei          #+#    #+#             */
-/*   Updated: 2023/05/24 10:40:04 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2023/05/24 10:46:26 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,6 @@ void Span::addElements(std::vector<int>::iterator begin, std::vector<int>::itera
 {
     if (this->vec.size() + std::distance(begin, end) > this->n)
         throw Span::FullException();
-
     vec.insert(vec.end(), begin, end);
 }
 
