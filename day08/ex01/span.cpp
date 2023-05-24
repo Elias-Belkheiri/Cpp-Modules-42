@@ -6,7 +6,7 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 13:27:35 by ebelkhei          #+#    #+#             */
-/*   Updated: 2023/05/23 16:53:17 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2023/05/24 10:40:04 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ Span &Span::operator=(const Span &rhs)
     return (*this);
 }
 
+//////////////////////////////////////////////////
+
 void Span::printVec(std::vector<int> vec)
 {
     for (size_t i = 0; i < vec.size(); i++)
@@ -47,6 +49,8 @@ void Span::addNumber(int n)
 {
     if (this->vec.size() < this->n)
         this->vec.push_back(n);
+    else if (!this->n)
+        throw Span::EmptyException();
     else
         throw Span::FullException();
 }
@@ -54,7 +58,7 @@ void Span::addNumber(int n)
 int Span::shortestSpan()
 {
     int span;
-    std::vector<int> tmp = this->vec;
+    std::vector<int> tmp(this->vec);
 
     if (this->vec.size() < 2)
         throw Span::NoSpanException();
@@ -72,16 +76,13 @@ int Span::shortestSpan()
 
 int Span::longestSpan()
 {
-    int span;
-    std::vector<int> tmp = this->vec;
+    int max, min;
 
     if (this->vec.size() < 2)
         throw Span::NoSpanException();
-    
-    std::sort(tmp.begin(), tmp.end()); 
-    span = tmp[tmp.size() - 1] - tmp[0];
-
-    return (span);
+    max = *(std::max_element(this->vec.begin(), this->vec.end()));
+    min = *(std::min_element(this->vec.begin(), this->vec.end()));
+    return (max - min);
 }
 
 void Span::addElements(std::vector<int>::iterator begin, std::vector<int>::iterator end)
@@ -92,7 +93,17 @@ void Span::addElements(std::vector<int>::iterator begin, std::vector<int>::itera
     vec.insert(vec.end(), begin, end);
 }
 
+std::vector<int> Span::getVec() const
+{
+    return (this->vec);
+}
+
 // Exceptions
+const char *Span::EmptyException::what() const throw()
+{
+    return ("The container is empty");
+}
+
 const char *Span::FullException::what() const throw()
 {
     return ("The container is full");
