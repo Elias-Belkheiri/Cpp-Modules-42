@@ -1,18 +1,8 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   MutantStack.hpp                                    :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/24 10:55:16 by ebelkhei          #+#    #+#             */
-/*   Updated: 2023/05/24 17:12:59 by ebelkhei         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #pragma once
 
 #include <stack>
+#include <deque>
+#include <vector>
 #include <iostream>
 #include <algorithm>
 
@@ -39,6 +29,15 @@ class MutantStack : public std::stack<T, Container>
     // Reverse iterators
     typedef typename container::reverse_iterator reverse_iterator;
     typedef typename container::const_reverse_iterator const_reverse_iterator;
-
-    iterator begin() { return (container::begin()); }
+    iterator begin() { return std::stack<T, Container>::c.begin(); }
+    iterator end() { return std::stack<T, Container>::c.end(); }
+    // Const iterators
+    const_iterator begin() const { return std::stack<T, Container>::c.cbegin(); }
+    const_iterator end() const { return std::stack<T, Container>::c.cend(); }
+    // Reverse iterators
+    reverse_iterator rbegin() { return std::stack<T, Container>::c.rbegin(); }
+    reverse_iterator rend() { return std::stack<T, Container>::c.rend(); }
+    // Const reverse iterators
+    const_reverse_iterator rbegin() const { return std::stack<T, Container>::c.crbegin(); }
+    const_reverse_iterator rend() const { return std::stack<T, Container>::c.crend(); }
 };

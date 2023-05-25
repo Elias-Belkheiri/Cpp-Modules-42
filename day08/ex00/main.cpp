@@ -6,7 +6,7 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 16:59:09 by ebelkhei          #+#    #+#             */
-/*   Updated: 2023/05/21 12:35:55 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2023/05/25 15:58:46 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int main()
     
     try
     {
-        std::cout << *(easyfind(v, 1)) << " was found." << std::endl;
+        std::cout << easyfind(v, 1) << " was found." << std::endl;
     }
     catch (std::exception &e)
     {
@@ -30,7 +30,7 @@ int main()
 
     try
     {
-        std::cout << *(easyfind(v, 10)) << " was found." << std::endl;
+        std::cout << easyfind(v, 10) << " was found." << std::endl;
     }
     catch (std::exception &e)
     {
