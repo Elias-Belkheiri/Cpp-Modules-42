@@ -6,7 +6,7 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 13:24:18 by ebelkhei          #+#    #+#             */
-/*   Updated: 2023/05/24 09:34:44 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2023/05/25 16:11:51 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 #include <vector>
 #include <algorithm>
 #include <exception>
-
+#include <cstdlib>
+// Check that the range of iterators can be of any container type
 class Span
 {
     private:
@@ -25,7 +26,7 @@ class Span
 	
 	public:
 		Span();
-		Span(unsigned int n);
+		Span(size_t n);
 		Span(const Span &src);
 		~Span();
 		

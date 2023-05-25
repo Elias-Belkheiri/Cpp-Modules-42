@@ -6,7 +6,7 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 13:27:35 by ebelkhei          #+#    #+#             */
-/*   Updated: 2023/05/24 10:46:26 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2023/05/25 16:03:01 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Span::Span() : n(0) {}
 
-Span::Span(unsigned int n) : n(n)
+Span::Span(size_t n) : n(n)
 {
     vec.reserve(n);
 }
