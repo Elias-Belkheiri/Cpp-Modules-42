@@ -6,7 +6,7 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 16:54:44 by ebelkhei          #+#    #+#             */
-/*   Updated: 2023/05/26 11:57:37 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2023/05/26 16:02:26 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,7 @@ int checkDate(std::string date)
     int year, month, day;
 
     if (std::count(date.begin(), date.end(), '-') != 2 || date.length() != 10)
-    {
-        std::cout << "len: " << date.length() << std::endl;
         return (0);
-    }
     for (size_t i = 0; i < date.length(); i++)
     {
         if (!std::isdigit(date[i]) && date[i] != '-')
@@ -63,6 +60,8 @@ int checkValue(std::string value)
 {
     int p = 0;
     
+    if (!value.length())
+        return (0);
     for (size_t i = 0; i < value.length(); i++)
     {
         if (value[i] == '.' && p == 0)
@@ -73,11 +72,12 @@ int checkValue(std::string value)
     return (1);
 }
 
-int checkInput(std::string date, std::string value)
+int checkInput(std::string &date, std::string &value)
 {
     int year, month, day;
     double _value;
     
+
     if (!checkDate(date))
         return (BAD_DATE);
     year = std::stoi(date.substr(0, date.find('-')));
@@ -90,10 +90,10 @@ int checkInput(std::string date, std::string value)
         return (BAD_DATE);
     if (year == 2022 && month == 3 && day > 29)
         return (BAD_DATE);
-    if (!checkValue(value))
-        return (BAD_VALUE);
     if (_value < 0)
         return (SMALL_NUM);
+    if (!checkValue(value))
+        return (BAD_VALUE);
     if (_value > 1000)
         return (LARGE_NUM);
     return (GOOD);
@@ -124,10 +124,25 @@ double getPrice(std::map<std::string, double> &db, std::string _date)
 {
     std::string date;
 
-    date = db.lower_bound(_date)->first;
+    std::map<std::string, double>::iterator it = db.lower_bound(_date);
+    date = it->first;
     if (date == _date)
         return (db[date]);
-    return (--(db.lower_bound(_date))->second);
+    it--;
+    return (it->second);
+}
+
+int checkLine(std::string line)
+{
+    int i;
+    for (size_t i = 0; i < line.length(); i++)
+        if (!std::isdigit(line[i]) && line[i] != '-' && line[i] != ' ' && line[i] != '|')
+            return (0);
+    
+    i = line.find("|");
+    if (line[i - 1] != ' ' || line[i + 1] != ' ')
+        return (0);
+    return (1);
 }
 
 void Btc::readInput(std::ifstream &input)
@@ -144,12 +159,16 @@ void Btc::readInput(std::ifstream &input)
             i++;
             continue;
         }
-        if(std::count(line.begin(), line.end(), '|') != 1)
-            throw ParseError();
-        date = line.substr(0, line.find('|'));
-        price = line.substr(line.find('|') + 1);
-        std::remove(date.begin(), date.end(), ' ');
-        std::remove(price.begin(), price.end(), ' ');
+        
+        if(std::count(line.begin(), line.end(), '|') != 1
+           || std::count(line.begin(), line.end(), ' ') != 2
+           || !checkLine(line))
+        {
+            std::cout << "Error: bad input => " << line << std::endl;
+            continue;
+        }
+        date = line.substr(0, line.find(' '));
+        price = line.substr(line.find_last_of(' ') + 1);
         switch (checkInput(date, price))
         {
             case (BAD_DATE):
