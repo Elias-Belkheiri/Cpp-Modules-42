@@ -6,7 +6,7 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 16:16:39 by ebelkhei          #+#    #+#             */
-/*   Updated: 2023/05/26 18:33:14 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2023/05/27 10:23:27 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ int fill_list(std::list<int> &list, std::string arg)
         
         if (isdigit(arg[i]) || (arg[i] == '-' && isdigit(arg[i + 1])))
         {
+            if (atoi(arg.c_str() + i) > 9)
+                return (0);
             list.push_back(atoi(arg.c_str() + i));
             if (arg[i] == '-')
                 i++;
