@@ -6,7 +6,7 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 13:28:26 by ebelkhei          #+#    #+#             */
-/*   Updated: 2023/05/27 15:09:39 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2023/05/28 15:26:45 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ float sortVector(std::vector<int> &v)
     
     v = mergeSortVec(v);
     end = clock();
-    return ((((double)(end) / CLOCKS_PER_SEC) - ((double)(start) / CLOCKS_PER_SEC)) * 1 000 000);
+    return ((((double)(end) / CLOCKS_PER_SEC) - ((double)(start) / CLOCKS_PER_SEC)) * 1000000);
 }
 
 void insertionSort(std::vector<int> &v)
@@ -205,5 +205,5 @@ float sortDeque(std::deque<int> &d)
     
     d = mergeSortDeq(d);
     end = clock();
-    return (((double)(end) / CLOCKS_PER_SEC) - ((double)(start) / CLOCKS_PER_SEC));
+    return ((((double)(end - start) / CLOCKS_PER_SEC)) * 1000000);
 }

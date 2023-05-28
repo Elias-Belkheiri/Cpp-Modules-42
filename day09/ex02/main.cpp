@@ -6,7 +6,7 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 10:51:23 by ebelkhei          #+#    #+#             */
-/*   Updated: 2023/05/27 15:04:29 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2023/05/28 14:34:12 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,6 @@ int main(int argc, char **argv)
     for (size_t i = 0; i < v.size(); i++)
         std::cout << v[i] << " ";
     std::cout << std::endl;
-    std::cout << std::setprecision(5) << "Time to process a range of 5 elements with std::vector " << v_time << std::endl;
-    std::cout << "Time to process a range of 5 elements with std::deque " << d_time << std::endl;
+    std::cout << std::setprecision(5) << "Time to process a range of " << v.size() << " elements with std::vector " << v_time << std::endl;
+    std::cout << "Time to process a range of " << d.size() << " elements with std::deque " << d_time << std::endl;
 }

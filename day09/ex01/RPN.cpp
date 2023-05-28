@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RPC.cpp                                            :+:      :+:    :+:   */
+/*   RPN.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 16:16:39 by ebelkhei          #+#    #+#             */
-/*   Updated: 2023/05/27 10:23:27 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2023/05/28 16:17:09 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RPC.hpp"
+#include "RPN.hpp"
 
 // while of the argument checking if there is only numbers and operators
 // check if the first operand is an operator
@@ -28,7 +28,7 @@ int parse(std::string arg)
     size_t nums = 0;
     size_t numOfOperators = 0;
     
-    if (isOperator(arg[0]))
+    if (isOperator(arg[0]) && !isdigit(arg[1]))
         return (0);
     while (++i < arg.length())
     {

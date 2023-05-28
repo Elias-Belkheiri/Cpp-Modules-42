@@ -6,7 +6,7 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 16:54:44 by ebelkhei          #+#    #+#             */
-/*   Updated: 2023/05/28 14:25:35 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2023/05/28 16:29:08 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ const char* Btc::ParseError::what() const throw()
     return ("Parse Error");
 }
 
+// long int getNumber()
+
 int checkDate(std::string date)
 {
     int year, month, day;
@@ -40,9 +42,9 @@ int checkDate(std::string date)
         if (!std::isdigit(date[i]) && date[i] != '-')
             return (0);
     }
-    year = std::stoi(date.substr(0, date.find('-')));
-    month = std::stoi(date.substr(date.find('-') + 1, date.find('-')));
-    day = std::stoi(date.substr(date.find_last_of('-') + 1));
+    year = atol((date.substr(0, date.find('-'))).c_str());
+    month = atol((date.substr(date.find('-') + 1, date.find('-'))).c_str());
+    day = atol((date.substr(date.find_last_of('-') + 1)).c_str());
     if (year < 2009 || year > 2022 || month < 1 || month > 12 || day < 1 || day > 31)
         return (0);
     // Leap year
@@ -80,9 +82,9 @@ int checkInput(std::string &date, std::string &value)
 
     if (!checkDate(date))
         return (BAD_DATE);
-    year = std::stoi(date.substr(0, date.find('-')));
-    month = std::stoi(date.substr(date.find('-') + 1, date.find('-')));
-    day = std::stoi(date.substr(date.find_last_of('-') + 1));
+    year = atol((date.substr(0, date.find('-'))).c_str());
+    month = atol((date.substr(date.find('-') + 1, date.find('-'))).c_str());
+    day = atol((date.substr(date.find_last_of('-') + 1)).c_str());
     if (year == 2009 && month == 1 && day < 2)
         return (BAD_DATE);
     if (year == 2022 && month > 3)

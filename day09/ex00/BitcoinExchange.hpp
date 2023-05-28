@@ -6,7 +6,7 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 16:47:02 by ebelkhei          #+#    #+#             */
-/*   Updated: 2023/05/26 11:27:59 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2023/05/28 16:22:51 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 #include <algorithm>
 #include <iostream>
+#include <stdlib.h>
 #include <iomanip>
 #include <fstream>
 #include <string>
