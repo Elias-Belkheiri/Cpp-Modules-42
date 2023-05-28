@@ -6,7 +6,7 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 16:54:44 by ebelkhei          #+#    #+#             */
-/*   Updated: 2023/05/28 14:18:02 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2023/05/28 14:25:35 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,19 +83,26 @@ int checkInput(std::string &date, std::string &value)
     year = std::stoi(date.substr(0, date.find('-')));
     month = std::stoi(date.substr(date.find('-') + 1, date.find('-')));
     day = std::stoi(date.substr(date.find_last_of('-') + 1));
-    if (!checkValue(value))
-        return (BAD_VALUE);
-    _value = std::stod(value);
     if (year == 2009 && month == 1 && day < 2)
         return (BAD_DATE);
     if (year == 2022 && month > 3)
         return (BAD_DATE);
     if (year == 2022 && month == 3 && day > 29)
         return (BAD_DATE);
-    if (_value < 0)
-        return (SMALL_NUM);
-    if (_value > 1000)
-        return (LARGE_NUM);
+    try
+    {
+        _value = std::stod(value);
+        if (_value < 0)
+            return (SMALL_NUM);
+        if (_value > 1000)
+            return (LARGE_NUM);
+        if (!checkValue(value))
+            return (BAD_VALUE);
+    }
+    catch(const std::exception& e)
+    {
+        return (BAD_VALUE);
+    }
     return (GOOD);
 }
 
