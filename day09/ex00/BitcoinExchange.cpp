@@ -6,7 +6,7 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 16:54:44 by ebelkhei          #+#    #+#             */
-/*   Updated: 2023/05/26 16:02:26 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2023/05/28 14:18:02 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int checkValue(std::string value)
 {
     int p = 0;
     
-    if (!value.length())
+    if (!value.length() || !isdigit(value[0]))
         return (0);
     for (size_t i = 0; i < value.length(); i++)
     {
@@ -83,6 +83,8 @@ int checkInput(std::string &date, std::string &value)
     year = std::stoi(date.substr(0, date.find('-')));
     month = std::stoi(date.substr(date.find('-') + 1, date.find('-')));
     day = std::stoi(date.substr(date.find_last_of('-') + 1));
+    if (!checkValue(value))
+        return (BAD_VALUE);
     _value = std::stod(value);
     if (year == 2009 && month == 1 && day < 2)
         return (BAD_DATE);
@@ -92,8 +94,6 @@ int checkInput(std::string &date, std::string &value)
         return (BAD_DATE);
     if (_value < 0)
         return (SMALL_NUM);
-    if (!checkValue(value))
-        return (BAD_VALUE);
     if (_value > 1000)
         return (LARGE_NUM);
     return (GOOD);
@@ -136,7 +136,7 @@ int checkLine(std::string line)
 {
     int i;
     for (size_t i = 0; i < line.length(); i++)
-        if (!std::isdigit(line[i]) && line[i] != '-' && line[i] != ' ' && line[i] != '|')
+        if (!std::isdigit(line[i]) && line[i] != '-' && line[i] != ' ' && line[i] != '|' && line[i] != '.')
             return (0);
     
     i = line.find("|");

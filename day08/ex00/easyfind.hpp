@@ -6,7 +6,7 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 15:15:41 by ebelkhei          #+#    #+#             */
-/*   Updated: 2023/05/25 15:58:08 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2023/05/28 12:14:04 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,12 @@
 #include <vector>
 #include <iterator>
 #include <algorithm>
-
-class ElementNotFound :  public std::exception
-{
-    // Check the constructors
-    public:
-        virtual const char *what() const throw()
-        {
-            return ("Element not found");
-        }
-};
+#include <exception>
 
 template<typename T>
 int  easyfind(T cont, int n)
 {
     if (std::find(cont.begin(), cont.end(), n) != cont.end())
         return (n);
-    throw ElementNotFound();
+    throw std::out_of_range("Element not found.");
 }
