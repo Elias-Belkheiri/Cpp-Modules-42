@@ -6,7 +6,7 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 13:24:18 by ebelkhei          #+#    #+#             */
-/*   Updated: 2023/05/25 16:11:51 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2023/05/28 11:34:06 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 #include <iostream>
 #include <vector>
+#include <deque>
 #include <algorithm>
 #include <exception>
 #include <cstdlib>
-// Check that the range of iterators can be of any container type
 class Span
 {
     private:
@@ -34,10 +34,18 @@ class Span
 
 		std::vector<int> 	getVec() const;
 		void 				addNumber(int n);
-		void				printVec(std::vector<int> vec);
+		void				printVec();
 		int					shortestSpan();
 		int					longestSpan();
-		void				addElements(std::vector<int>::iterator begin, std::vector<int>::iterator end);
+		
+		// Adding a range of elements using iterators
+		template <typename T>
+		void addElements(T begin, T end)
+		{
+			if (this->vec.size() + std::distance(begin, end) > this->n)
+				throw Span::FullException();
+			vec.insert(vec.end(), begin, end);
+		}
 		
 		// Exceptions
 		class EmptyException : public std::exception

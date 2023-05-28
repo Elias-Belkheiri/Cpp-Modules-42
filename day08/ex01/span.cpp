@@ -6,7 +6,7 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 13:27:35 by ebelkhei          #+#    #+#             */
-/*   Updated: 2023/05/25 16:03:01 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2023/05/28 11:31:02 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,10 @@ Span &Span::operator=(const Span &rhs)
 
 //////////////////////////////////////////////////
 
-void Span::printVec(std::vector<int> vec)
+void Span::printVec()
 {
-    for (size_t i = 0; i < vec.size(); i++)
-        std::cout << vec[i] << " ";
+    for (size_t i = 0; i < this->vec.size(); i++)
+        std::cout << this->vec[i] << " ";
     std::cout << std::endl;
 }
 
@@ -83,13 +83,6 @@ int Span::longestSpan()
     max = *(std::max_element(this->vec.begin(), this->vec.end()));
     min = *(std::min_element(this->vec.begin(), this->vec.end()));
     return (max - min);
-}
-
-void Span::addElements(std::vector<int>::iterator begin, std::vector<int>::iterator end)
-{
-    if (this->vec.size() + std::distance(begin, end) > this->n)
-        throw Span::FullException();
-    vec.insert(vec.end(), begin, end);
 }
 
 std::vector<int> Span::getVec() const
